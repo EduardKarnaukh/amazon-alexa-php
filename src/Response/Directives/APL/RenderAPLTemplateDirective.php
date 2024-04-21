@@ -10,11 +10,11 @@ class RenderAPLTemplateDirective extends Directive
 
     public string $token;
 
-    public APLDocument $document;
+    public APLDocumentInterface $document;
 
     public array $datasources = [];
 
-    public static function create(string $token, APLDocument $document): static
+    public static function create(string $token, APLDocumentInterface $document): static
     {
         $directive = new self();
 

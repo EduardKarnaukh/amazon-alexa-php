@@ -74,10 +74,12 @@ class RequestValidator
             return;
         }
 
-        $differenceInSeconds = time() - $request->request->timestamp->getTimestamp();
+        if ($request->request->type !== Request\AlexaSkillEvent\AlexaAPLUserEvent::TYPE) {
+            $differenceInSeconds = time() - $request->request->timestamp->getTimestamp();
 
-        if ($differenceInSeconds > $this->timestampTolerance) {
-            throw new RequestInvalidTimestampException('Invalid timestamp.');
+            if ($differenceInSeconds > $this->timestampTolerance) {
+                throw new RequestInvalidTimestampException('Invalid timestamp.');
+            }
         }
     }
 

@@ -6,6 +6,7 @@ use MaxBeckers\AmazonAlexa\Exception\MissingRequestDataException;
 use MaxBeckers\AmazonAlexa\Exception\MissingRequiredHeaderException;
 use MaxBeckers\AmazonAlexa\Helper\PropertyHelper;
 use MaxBeckers\AmazonAlexa\Request\Request\AbstractRequest;
+use MaxBeckers\AmazonAlexa\Request\Request\AlexaSkillEvent\AlexaAPLUserEvent;
 use MaxBeckers\AmazonAlexa\Request\Request\AlexaSkillEvent\SkillAccountLinkedRequest;
 use MaxBeckers\AmazonAlexa\Request\Request\AlexaSkillEvent\SkillDisabledRequest;
 use MaxBeckers\AmazonAlexa\Request\Request\AlexaSkillEvent\SkillEnabledRequest;
@@ -69,6 +70,7 @@ class Request
         SkillDisabledRequest::TYPE           => SkillDisabledRequest::class,
         SkillPermissionAcceptedRequest::TYPE => SkillPermissionAcceptedRequest::class,
         SkillPermissionChangedRequest::TYPE  => SkillPermissionChangedRequest::class,
+        AlexaAPLUserEvent::TYPE  =>             AlexaAPLUserEvent::class,
     ];
 
     /**

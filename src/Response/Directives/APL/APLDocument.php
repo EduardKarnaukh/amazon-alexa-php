@@ -2,17 +2,38 @@
 
 namespace MaxBeckers\AmazonAlexa\Response\Directives\APL;
 
-class APLDocument
+/** @todo add settings,  */
+class APLDocument implements APLDocumentInterface
 {
-    public string $name;
-    public string $type;
+    public const THEME_LIGHT = 'light';
+    public const THEME_DARK = 'dark';
 
-    public static function create(string $name, string $type = 'Link'): static
+    public const ALEXA_LAYOUTS_IMPORT = [
+        'name' => 'alexa-layouts',
+        'version' => '1.7.0'
+    ];
+
+    public $type = 'APL';
+    public $version = '1.8';
+    public $license = 'Ecomitize LLC';
+    public $settings = [];
+    public $theme = self::THEME_DARK;
+    public $import = [
+        self::ALEXA_LAYOUTS_IMPORT
+    ];
+    public $resources = [];
+    public $styles = [];
+    public $onMount = [];
+    public $graphics = [];
+    public $commands = [];
+    public $layouts = [];
+    public $mainTemplate = [];
+
+    public static function create(array $mainTemplate): static
     {
         $document = new self();
 
-        $document->name = $name;
-        $document->type = $type;
+        $document->mainTemplate = $mainTemplate;
 
         return $document;
     }
